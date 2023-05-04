@@ -16,7 +16,6 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public List<Bookings> getBookingsDetails() {
-        // TODO Auto-generated method stub
         return bookingRepository.findAll();
     }
     
