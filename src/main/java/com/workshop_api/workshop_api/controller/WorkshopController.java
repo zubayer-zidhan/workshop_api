@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workshop_api.workshop_api.services.WorkshopService;
+
 import com.workshop_api.workshop_api.entities.Workshops;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class WorkshopController {
     public List<Workshops> getWorkshops(){
         return workshopService.getAllWorkshops();
     }
+    
 
    
 }
