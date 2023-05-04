@@ -15,7 +15,7 @@ public class BookingController {
     @Autowired
     BookingService bookingService;
     
-
+    // Route
     @GetMapping("/bookings")
     public List<Bookings> getBookingsDetails(){
         return bookingService.getBookingsDetails();
