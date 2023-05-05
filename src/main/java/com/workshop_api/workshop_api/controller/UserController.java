@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workshop_api.workshop_api.entities.Users;
@@ -22,7 +22,12 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public Users addUser(@RequestBody Users user){
+    public Users addUser(
+        @RequestParam("name") String name,
+        @RequestParam("phone") String phone,
+        @RequestParam("mail") String mail
+    ){
+        Users user = new Users(0, name, phone, mail);
         return userService.addUser(user);
     }
 
