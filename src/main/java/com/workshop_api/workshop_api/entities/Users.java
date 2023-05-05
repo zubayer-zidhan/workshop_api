@@ -42,6 +42,19 @@ public class Users {
     public void setMail(String mail) {
         this.mail = mail;
     }
+    public Users(int id, String name, String phone, String mail) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.mail = mail;
+    }
+    public Users() {
+        super();
+    }
+    @Override
+    public String toString() {
+        return "Users [id=" + id + ", name=" + name + ", phone=" + phone + ", mail=" + mail + "]";
+    }
 
 
 }

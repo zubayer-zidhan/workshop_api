@@ -18,6 +18,11 @@ public class UserSeviceImpl implements UserService {
     public List<Users> getUserDetails() {
         return userRepository.findAll();
     }
+
+    @Override
+    public Users addUser(Users user) {
+        return userRepository.save(user);
+    }
     
     
 }

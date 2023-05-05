@@ -9,4 +9,5 @@ import com.workshop_api.workshop_api.entities.Users;
 @Service
 public interface UserService {
     public List<Users> getUserDetails();
+    public Users addUser(Users user);
 }
