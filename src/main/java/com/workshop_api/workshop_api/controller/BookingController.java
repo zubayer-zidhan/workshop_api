@@ -61,4 +61,38 @@ public class BookingController {
 
         return outputMessage;
     }
+
+    
+    // Post Request for Booking Using City ID
+    @PostMapping("/book-with-cityid")
+    public String bookWithCityId(
+        @RequestParam("cid") int cid,
+        @RequestParam("uid") int uid,
+        @RequestParam("bdate") String bdate
+    ) {
+        int outputValue = jdbcTemplate.queryForObject(
+            "CALL book_with_city_id(?, ?, ?)",
+            Integer.class, 
+            cid,
+            uid,
+            bdate
+        );
+
+        String outputMessage;
+
+        if(outputValue == 10) {
+            outputMessage = "SUCCESS";
+        }  else {
+            if(outputValue == 20) {
+                outputMessage = "No Slots Available at the required city on the given date";
+            } else {
+                outputMessage = "UNSUCCESSFUL"; 
+            }
+        }  
+
+        return outputMessage;
+    }
+
+
+
 }
