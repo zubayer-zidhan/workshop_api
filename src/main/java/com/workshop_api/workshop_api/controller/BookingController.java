@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workshop_api.workshop_api.entities.Bookings;
@@ -33,29 +32,28 @@ public class BookingController {
         return bookingService.getBookingsDetails();
     }
 
+    // Post Request for Booking Using Workshop ID
     @PostMapping("/book-with-workshopid")
-    @ResponseBody
     public String bookWithWorkshopId(
         @RequestParam("wid") int wid,
         @RequestParam("uid") int uid,
         @RequestParam("bdate") String bdate
-
     ) {
-        int op = jdbcTemplate.queryForObject(
+        int outputValue = jdbcTemplate.queryForObject(
             "CALL book_with_workshop_id(?, ?, ?)",
             Integer.class, 
-            wid, 
-            uid, 
+            wid,
+            uid,
             bdate
         );
 
         String outputMessage;
 
-        if(op == 10) {
+        if(outputValue == 10) {
             outputMessage = "SUCCESS";
         }  else {
-            if(op == 20) {
-                outputMessage = "No Slots Available on given date";
+            if(outputValue == 20) {
+                outputMessage = "No Slots Available at the required workshop on the given date";
             } else {
                 outputMessage = "UNSUCCESSFUL"; 
             }
