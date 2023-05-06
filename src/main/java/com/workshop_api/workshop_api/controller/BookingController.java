@@ -39,31 +39,11 @@ public class BookingController {
         @RequestParam("uid") int uid,
         @RequestParam("bdate") String bdate
     ) {
-        int outputValue = jdbcTemplate.queryForObject(
-            "CALL book_with_workshop_id(?, ?, ?)",
-            Integer.class, 
-            wid,
-            uid,
-            bdate
-        );
-
-        String outputMessage;
-
-        if(outputValue == 10) {
-            outputMessage = "SUCCESS";
-        }  else {
-            if(outputValue == 20) {
-                outputMessage = "No Slots Available at the required workshop on the given date";
-            } else {
-                outputMessage = "UNSUCCESSFUL"; 
-            }
-        }  
-
-        return outputMessage;
+        return bookingService.bookWithWorkshopId(wid, uid, bdate);
     }
 
     
-    // Post Request for Booking Using City ID
+    //Post Request for Booking Using City ID
     @PostMapping("/book-with-cityid")
     public String bookWithCityId(
         @RequestParam("cid") int cid,
