@@ -17,7 +17,6 @@ public class BookingServiceImpl implements BookingService {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public BookingServiceImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
