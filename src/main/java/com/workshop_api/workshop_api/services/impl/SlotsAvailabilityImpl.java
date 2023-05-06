@@ -45,7 +45,7 @@ public class SlotsAvailabilityImpl implements SlotsAvailabilityService {
             cid,
             bdate
         );
-        return "There are '" + availableSlots + "' slots available in workshop with id=" + cid + " on date=" + bdate + ".";
+        return "There are '" + availableSlots + "' slots available in city with id=" + cid + " on date=" + bdate + ".";
     }
 
     
