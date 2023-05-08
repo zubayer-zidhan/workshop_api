@@ -20,5 +20,10 @@ public class WorkshopServiceImpl implements WorkshopService {
         // TODO Auto-generated method stub
         return workshopRepository.findAll();  //calling findAll() from Jparepository
     }
+
+    @Override
+    public Workshops addWorkshop(Workshops workshop) {
+        return workshopRepository.save(workshop);
+    }
     
 }

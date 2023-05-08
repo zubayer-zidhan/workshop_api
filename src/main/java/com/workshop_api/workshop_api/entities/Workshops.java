@@ -51,4 +51,21 @@ public class Workshops {
         this.city_id = city_id;
     }
 
+    public Workshops() {
+        super();
+    }
+
+    public Workshops(int id, String name, int total_slots, int city_id) {
+        this.id = id;
+        this.name = name;
+        this.total_slots = total_slots;
+        this.city_id = city_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Workshops [id=" + id + ", name=" + name + ", total_slots=" + total_slots + ", city_id=" + city_id + "]";
+    }
+    
+
 }
