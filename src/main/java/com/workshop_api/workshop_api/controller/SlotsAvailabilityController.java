@@ -16,7 +16,7 @@ public class SlotsAvailabilityController {
     SlotsAvailabilityService slotsAvailabilityService;
 
     // Get the all data from "slots-availability-table"
-    @GetMapping("/slots-availability")
+    @GetMapping("/getSlotsAvailability")
     public List<SlotsAvailability> getSlotsAvailabilityDetails() {
         return slotsAvailabilityService.getSlotsAvailabilityDetails();
     }

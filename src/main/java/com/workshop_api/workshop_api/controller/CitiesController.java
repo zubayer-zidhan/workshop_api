@@ -17,7 +17,7 @@ public class CitiesController {
     @Autowired
     CitiesService citiesService;
     
-    @GetMapping("/cities")
+    @GetMapping("/getCities")
     public List<Cities> getAllCities(){
         return citiesService.getAllCities();
     }

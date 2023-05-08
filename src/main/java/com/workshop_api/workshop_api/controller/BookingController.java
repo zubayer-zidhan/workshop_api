@@ -18,7 +18,7 @@ public class BookingController {
     BookingService bookingService;
 
     // Route
-    @GetMapping("/bookings")
+    @GetMapping("/getBookings")
     public List<Bookings> getBookingsDetails(){
         return bookingService.getBookingsDetails();
     }

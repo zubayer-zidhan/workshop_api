@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/getUsers")
     public List<Users> getUserDetails(){
         return userService.getUserDetails();
     }
