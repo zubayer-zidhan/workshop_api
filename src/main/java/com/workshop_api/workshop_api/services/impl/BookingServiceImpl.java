@@ -54,7 +54,7 @@ public class BookingServiceImpl implements BookingService {
 
     //Method to book-with-city-id
     @Override
-    public ResponseEntity<String> bookWithCityId(int cid, int uid, String bdate) {
+    public String bookWithCityId(int cid, int uid, String bdate) {
         int outputValue = jdbcTemplate.queryForObject(
             "CALL book_with_city_id(?, ?, ?)",
             Integer.class, 
@@ -75,8 +75,7 @@ public class BookingServiceImpl implements BookingService {
             }
         }  
         
-
-        return ResponseEntity.ok(outputMessage);
+        return outputMessage;
 
     }
         
