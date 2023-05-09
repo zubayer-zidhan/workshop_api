@@ -16,7 +16,7 @@ public class WorkshopController {
     
     @Autowired
     WorkshopService workshopService;
-    
+   
     @GetMapping("/getWorkshops")
     public List<Workshops> getWorkshops(){
         return workshopService.getAllWorkshops();
