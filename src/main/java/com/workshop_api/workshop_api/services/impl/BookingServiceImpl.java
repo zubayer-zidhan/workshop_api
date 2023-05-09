@@ -3,6 +3,7 @@ package com.workshop_api.workshop_api.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -53,7 +54,7 @@ public class BookingServiceImpl implements BookingService {
 
     //Method to book-with-city-id
     @Override
-    public String bookWithCityId(int cid, int uid, String bdate) {
+    public ResponseEntity<String> bookWithCityId(int cid, int uid, String bdate) {
         int outputValue = jdbcTemplate.queryForObject(
             "CALL book_with_city_id(?, ?, ?)",
             Integer.class, 
@@ -73,8 +74,10 @@ public class BookingServiceImpl implements BookingService {
                 outputMessage = "UNSUCCESSFUL"; 
             }
         }  
+        
 
-        return outputMessage;
+        return ResponseEntity.ok(outputMessage);
+
     }
         
     }
