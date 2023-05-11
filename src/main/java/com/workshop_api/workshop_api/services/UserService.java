@@ -10,4 +10,5 @@ import com.workshop_api.workshop_api.entities.Users;
 public interface UserService {
     public List<Users> getUserDetails();
     public Users addUser(Users user);
+    public String findUserId(String name, String email);
 }
