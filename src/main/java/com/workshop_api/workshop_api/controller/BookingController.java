@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.workshop_api.classes.BookingRequestCity;
+import com.workshop_api.classes.BookingRequestWorkshop;
 import com.workshop_api.workshop_api.entities.Bookings;
 import com.workshop_api.workshop_api.services.BookingService;
 
@@ -27,24 +29,15 @@ public class BookingController {
 
     // Post Request for Booking Using Workshop ID
     @PostMapping("/book-with-workshopid")
-    public String bookWithWorkshopId(
-        @RequestParam("wid") int wid,
-        @RequestParam("uid") int uid,
-        @RequestParam("bdate") String bdate
-    ) {
-        return bookingService.bookWithWorkshopId(wid, uid, bdate);
+    public String bookWithWorkshopId(@RequestBody BookingRequestWorkshop bookingRequest) {
+        return bookingService.bookWithWorkshopId(bookingRequest.getWid(), bookingRequest.getUid(), bookingRequest.getDate());
     }
 
     
     //Post Request for Booking Using City ID
     @PostMapping("/book-with-cityid")
-    public String bookWithCityId(
-        @RequestParam("cid") int cid,
-        @RequestParam("uid") int uid,
-        @RequestParam("bdate") String bdate
-    ) {
-       
-        return bookingService.bookWithCityId(cid, uid, bdate);
+    public String bookWithCityId(@RequestBody BookingRequestCity bookingRequest) {
+        return bookingService.bookWithCityId(bookingRequest.getCid(), bookingRequest.getUid(), bookingRequest.getDate());
     }
 
 

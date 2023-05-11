@@ -31,5 +31,11 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    
+    @GetMapping("/findUserId")
+    public String findUserId(@RequestParam("name") String name, @RequestParam("email") String email) {
+        return userService.findUserId(name, email);
+    }
+
 
 }
