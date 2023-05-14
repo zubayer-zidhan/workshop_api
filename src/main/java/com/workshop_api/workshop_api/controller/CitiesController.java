@@ -3,6 +3,7 @@ package com.workshop_api.workshop_api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ public class CitiesController {
     @Autowired
     CitiesService citiesService;
     
+    @CrossOrigin(value = "http://localhost:3000")
     @GetMapping("/getCities")
     public List<Cities> getAllCities(){
         return citiesService.getAllCities();
