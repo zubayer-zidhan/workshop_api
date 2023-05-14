@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.workshop_api.classes.BookingRequestCity;
-import com.workshop_api.classes.BookingRequestWorkshop;
+import com.workshop_api.workshop_api.classes.BookingRequestCity;
+import com.workshop_api.workshop_api.classes.BookingRequestWorkshop;
 import com.workshop_api.workshop_api.entities.Bookings;
 import com.workshop_api.workshop_api.services.BookingService;
 
