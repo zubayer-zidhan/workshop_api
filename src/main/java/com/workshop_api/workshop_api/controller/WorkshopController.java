@@ -1,6 +1,7 @@
 package com.workshop_api.workshop_api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,7 @@ import com.workshop_api.workshop_api.services.WorkshopService;
 
 import com.workshop_api.workshop_api.entities.Workshops;
 import java.util.List;
-
+@CrossOrigin(value = "http://localhost:3000")
 @RestController
 public class WorkshopController {
     
