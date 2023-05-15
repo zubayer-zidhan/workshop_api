@@ -23,6 +23,13 @@ public class WorkshopController {
         return workshopService.getAllWorkshops();
     }
 
+
+    @GetMapping("/getWorkshopsByCity")
+    public List<Workshops> getWorkshopsByCity(@RequestParam("city_id") int city_id){
+        return workshopService.getWorkshopsByCity(city_id);
+    }
+
+
     @PostMapping("/addWorkshop")
     public Workshops addWorkshop(
         @RequestParam("name") String name,

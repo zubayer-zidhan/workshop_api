@@ -9,5 +9,6 @@ import com.workshop_api.workshop_api.entities.Workshops;
 public interface WorkshopService {
     //Methods name
     public List<Workshops> getAllWorkshops();
+    public List<Workshops> getWorkshopsByCity(int cid);
     public Workshops addWorkshop(Workshops workshop);
 }
