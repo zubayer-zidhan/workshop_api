@@ -34,7 +34,6 @@ public class WorkshopServiceImpl implements WorkshopService {
     @Override
     public List<Workshops> getWorkshopsByCity(int cid) {
         String stmt = "select * from workshops where city_id = ?";
-        System.out.println(stmt);
         List<Workshops> newWorkshops = jdbcTemplate.query(stmt, new BeanPropertyRowMapper<>(Workshops.class), cid);
         // newWorkshops.addAll(jdbcTemplate.queryForList(stmt, Workshops.class));
         return newWorkshops;
