@@ -38,18 +38,19 @@ public class UserSeviceImpl implements UserService {
     }
 
     @Override
-    public String findUserId(String name, String email) {
-        String sql = "SELECT id FROM users WHERE name = \"" + name + "\" AND mail = \"" + email + "\"";
+    public int findUserId(String name, String email) {
+        String sql = "SELECT id FROM users WHERE name = ? AND mail = ?";
         try {
             Integer userId = jdbcTemplate.queryForObject(sql, new RowMapper<Integer>() {
                 @Override
                 public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
                     return rs.getInt("id");
                 }
-            });
-            return String.valueOf(userId);
+            }, name, email);
+            return userId;
         } catch (EmptyResultDataAccessException ex) {
-            return "Invalid username or email";
+            // -404 = "Invalid username or email";
+            return -404;
         }
     
     }

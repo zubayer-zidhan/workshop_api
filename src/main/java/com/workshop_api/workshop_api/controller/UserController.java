@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.workshop_api.workshop_api.classes.UserRequest;
 import com.workshop_api.workshop_api.entities.Users;
 import com.workshop_api.workshop_api.services.UserService;
 
@@ -33,10 +35,10 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    
-    @GetMapping("/findUserId")
-    public String findUserId(@RequestParam("name") String name, @RequestParam("email") String email) {
-        return userService.findUserId(name, email);
+    @CrossOrigin(value = "http://localhost:3000") 
+    @PostMapping("/findUserId")
+    public int findUserId(@RequestBody UserRequest userRequest) {
+        return userService.findUserId(userRequest.getName(), userRequest.getEmail());
     }
 
 
