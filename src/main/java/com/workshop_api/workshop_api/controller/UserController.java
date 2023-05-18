@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.workshop_api.workshop_api.classes.AddUserRequest;
 import com.workshop_api.workshop_api.classes.UserRequest;
 import com.workshop_api.workshop_api.entities.Users;
 import com.workshop_api.workshop_api.services.UserService;
@@ -25,13 +25,10 @@ public class UserController {
         return userService.getUserDetails();
     }
 
+    @CrossOrigin(value = "http://localhost:3000")
     @PostMapping("/addUser")
-    public Users addUser(
-        @RequestParam("name") String name,
-        @RequestParam("phone") String phone,
-        @RequestParam("mail") String mail
-    ){
-        Users user = new Users(0, name, phone, mail);
+    public Users addUser(@RequestBody AddUserRequest addUserRequest) {
+        Users user = new Users(0, addUserRequest.getName(), addUserRequest.getPhone(), addUserRequest.getEmail());
         return userService.addUser(user);
     }
 
