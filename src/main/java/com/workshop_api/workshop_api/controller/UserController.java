@@ -25,6 +25,7 @@ public class UserController {
         return userService.getUserDetails();
     }
 
+    @CrossOrigin(value = "http://localhost:3000")
     @PostMapping("/addUser")
     public Users addUser(
         @RequestParam("name") String name,
